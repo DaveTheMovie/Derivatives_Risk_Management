@@ -18,10 +18,6 @@ def change(ds = .01, delta = 100, gamma = 0):
 st.title('Derivatives Risk Management')
 st.title('Delta Gamma Trainer')
 
-# Create a text element
-st.write(f'This is a simple app that squares a {asdf}.')
-
-
 delta = random.choice(deltas)
 gamma = random.choice(gammas)
 ds = random.choice(changes)
