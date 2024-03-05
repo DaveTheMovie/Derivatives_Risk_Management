@@ -33,7 +33,7 @@ if 'delta' not in st.session_state or 'gamma' not in st.session_state or 'ds' no
 
 # Display the question and ask for the user's answer
 question = f"What is the change in value given a {st.session_state['ds']} percent change in the underlying and a delta of {st.session_state['delta']} and a gamma of {st.session_state['gamma']}?"
-user_answer = st.number_input(question)
+user_answer = st.text_input(question)
 
 # Submit button logic
 if st.button('Submit'):
