@@ -32,6 +32,6 @@ user_answer = st.number_input(f"What is the change in asset value given a {ds} p
 # Check if the user's answer is correct
 answer = change(ds = ds/100, delta = delta, gamma = gamma)
 if abs(float(user_answer) - answer) < .0001:
-    st.write(("Correct!")
+    st.write("Correct!")
 else:
-    st.write((f"Incorrect. The correct answer is {answer}.")
+    st.write(f"Incorrect. The correct answer is {answer}.")
