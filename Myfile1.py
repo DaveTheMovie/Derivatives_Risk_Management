@@ -42,3 +42,20 @@ if st.button('Submit'):
         st.success("Correct!")
     else:
         st.error(f"Incorrect. The correct answer is {answer:.4f}.")  # Displaying the correct answer formatted to 4 decimal places
+
+def reset_and_rerun():
+    # Randomly choose new values for delta, gamma, and ds
+    new_delta = random.choice(deltas)
+    new_gamma = random.choice(gammas)
+    new_ds = random.choice(changes)
+
+    # Update the session state with these new values
+    st.session_state['delta'] = new_delta
+    st.session_state['gamma'] = new_gamma
+    st.session_state['ds'] = new_ds
+
+    # Rerun the app from the top
+    st.experimental_rerun()
+
+if st.button('Try Another Question'):
+    reset_and_rerun()
