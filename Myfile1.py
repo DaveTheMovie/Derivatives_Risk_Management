@@ -15,7 +15,21 @@ def change(ds=0.01, delta=100, gamma=0):
     dv = dbar * ds
     st.write('Initial Delta:', d0, 'Final Delta:', d1, 'Average Delta:', dbar, 'Change in Value:', dv)  # For debugging
     return (delta + 0.5 * gamma / 0.01 * ds * 100) * ds
+    
+def reset_and_rerun():
+    # Randomly choose new values for delta, gamma, and ds
+    new_delta = random.choice(deltas)
+    new_gamma = random.choice(gammas)
+    new_ds = random.choice(changes)
 
+    # Update the session state with these new values
+    st.session_state['delta'] = new_delta
+    st.session_state['gamma'] = new_gamma
+    st.session_state['ds'] = new_ds
+
+    # Rerun the app from the top
+    st.experimental_rerun()
+    
 # Title and introduction
 st.title('Derivatives Risk Management')
 st.write('Delta Gamma Trainer')
@@ -42,20 +56,6 @@ if st.button('Submit'):
         st.success("Correct!")
     else:
         st.error(f"Incorrect. The correct answer is {answer:.4f}.")  # Displaying the correct answer formatted to 4 decimal places
-
-def reset_and_rerun():
-    # Randomly choose new values for delta, gamma, and ds
-    new_delta = random.choice(deltas)
-    new_gamma = random.choice(gammas)
-    new_ds = random.choice(changes)
-
-    # Update the session state with these new values
-    st.session_state['delta'] = new_delta
-    st.session_state['gamma'] = new_gamma
-    st.session_state['ds'] = new_ds
-
-    # Rerun the app from the top
-    st.experimental_rerun()
 
 if st.button('Try Another Question'):
     reset_and_rerun()
