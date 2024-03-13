@@ -10,11 +10,11 @@ changes = [1, 2, 3, 4, 5]
 # Function to calculate the change in value
 def change(ds=0.01, delta=100, gamma=0):
     d0 = delta
-    d1 = delta + gamma / 0.01 * ds * 100
+    d1 = delta + gamma / 0.01 * ds
     dbar = (d0 + d1) / 2
     dv = dbar * ds
     st.write('Initial Delta:', d0, 'Final Delta:', d1, 'Average Delta:', dbar, 'Change in Value:', dv)  # For debugging
-    return (delta + 0.5 * gamma / 0.01 * ds * 100) * ds
+    return dv
     
 def reset_and_rerun():
     # Randomly choose new values for delta, gamma, and ds
