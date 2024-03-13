@@ -4,7 +4,7 @@ import random
 
 # Lists of possible deltas, gammas, and changes
 deltas = [100, 150, 200, 250, 300, 400, 500]
-gammas = [0.1, 0.5, 1, 1.5, 2, 5, 10, 20]
+gammas = [100, 150, 200, 250, 300, 400, 500]
 changes = [1, 2, 3, 4, 5]
 
 # Function to calculate the change in value
@@ -46,7 +46,7 @@ if 'delta' not in st.session_state or 'gamma' not in st.session_state or 'ds' no
     st.session_state['ds'] = ds
 
 # Display the question and ask for the user's answer
-question = f"What is the change in value given a {st.session_state['ds']} percent change in the underlying and a delta of {st.session_state['delta']} and a gamma of {st.session_state['gamma']}?"
+question = f"What is the change in value given a {st.session_state['ds']} percent change in the underlying and a delta of {st.session_state['delta']}m and a gamma of {st.session_state['gamma']}m?"
 user_answer = st.text_input(question)
 
 # Submit button logic
