@@ -63,7 +63,7 @@ if 'delta' not in st.session_state or 'gamma' not in st.session_state or 'ds' no
 
 # Display the question and ask for the user's answer
 question = f'''
-What is the change in value given a 
+What is the change in value given a \n
 {st.session_state['ds']} percent change in the underlying
 {st.session_state['dv']} percent point change in volatiltiy
 delta of {st.session_state['delta']}m
