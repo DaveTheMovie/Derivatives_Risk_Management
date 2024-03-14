@@ -8,11 +8,11 @@ gammas = [100, 150, 200, 250, 300, 400, 500]
 changes = [1, 2, 3, 4, 5]
 
 # Function to calculate the change in value
-def change(ds=0.01, delta=100, gamma=0):
+def change(ds=0.01, S = 100, delta=100, gamma=0):
     d0 = delta
-    d1 = delta + gamma / 0.01 * ds
+    d1 = delta + gamma / 0.01 * ds/S
     dbar = (d0 + d1) / 2
-    dv = dbar * ds
+    dv = dbar * ds/S
     st.write('Initial Delta:', d0, 'Final Delta:', d1, 'Average Delta:', dbar, 'Change in Value:', dv)  # For debugging
     return dv
     
@@ -38,6 +38,7 @@ st.write('Delta Gamma Trainer')
 delta = random.choice(deltas)
 gamma = random.choice(gammas)
 ds = random.choice(changes)
+S = 100
 
 # Cache the values so they don't change on every rerun
 if 'delta' not in st.session_state or 'gamma' not in st.session_state or 'ds' not in st.session_state:
@@ -51,7 +52,7 @@ user_answer = st.text_input(question)
 
 # Submit button logic
 if st.button('Submit'):
-    answer = change(ds=st.session_state['ds'] / 100, delta=st.session_state['delta'], gamma=st.session_state['gamma'])
+    answer = change(ds=st.session_state['ds'],S = S delta=st.session_state['delta'], gamma=st.session_state['gamma'])
     if abs(float(user_answer) - answer) < .0001:  # Comparing user's answer with actual answer
         st.success("Correct!")
     else:
