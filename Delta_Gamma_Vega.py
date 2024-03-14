@@ -19,7 +19,7 @@ def change(ds = .01, S=100, delta = 100, gamma = 0, vega = 0, dv = 0):
 
     print(dP_delta,dP_gamma,dP_vega,dP)
 
-    outstr = f"dP_Delta: {dP_delta} dP_gamma: {dP_gamma} dP_vega: {dP_vega} dP: {dP}"
+    outstr = f"dP_Delta: {dP_delta} dP_gamma: {dP_gamma} dP_vega: {dP_vega:.2f} dP: {dP:.2f}"
     
     st.write(outstr)
     # st.write('dP_Delta:', dP_delta, 'dP_gamma:', dP_gamma, 'dP_vega:', dP_vega, 'Change in Value:', dP)
