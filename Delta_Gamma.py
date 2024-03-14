@@ -52,7 +52,7 @@ user_answer = st.text_input(question)
 
 # Submit button logic
 if st.button('Submit'):
-    answer = change(ds=st.session_state['ds'],S = S delta=st.session_state['delta'], gamma=st.session_state['gamma'])
+    answer = change(ds=st.session_state['ds'],S=S, delta=st.session_state['delta'], gamma=st.session_state['gamma'])
     if abs(float(user_answer) - answer) < .0001:  # Comparing user's answer with actual answer
         st.success("Correct!")
     else:
